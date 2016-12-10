@@ -63,6 +63,15 @@ if (document.location.hostname == 'medium.com'){
 
 }
 
+//The Washington Post
+if (document.location.hostname == 'www.washingtonpost.com'){
+  var share = setInterval(function(){
+    if ( $('.social-tools-wrapper').length){
+      $('.social-tools-wrapper').hide();
+    }
+  }, 1000);
+}
+
 // Verge
 if (document.location.hostname == 'www.theverge.com'){
   var vergeVox = setInterval(function(){
