@@ -48,7 +48,7 @@ if (document.location.hostname == 'mashable.com'){
 //Medium
 
 // Share bar
-if (document.location.hostname == 'medium.com'){
+if (document.location.hostname == 'medium.com' || document.location.hostname == 'blog.medium.com'){
   var share = setInterval(function(){
     if ( $('.js-postShareWidget').length){
       $('.js-postShareWidget').hide();
