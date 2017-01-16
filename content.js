@@ -1,5 +1,7 @@
+const host = document.location.hostname;
+
 // Bloomberg
-if (document.location.hostname == 'www.bloomberg.com'){
+if (host == 'www.bloomberg.com'){
   var bloomberg = setInterval(function(){
     if ( $('.bb-nav-social-container').length){
       $('.bb-nav-social-container').hide();
@@ -9,7 +11,7 @@ if (document.location.hostname == 'www.bloomberg.com'){
 }
 
 // CNN
-if (document.location.hostname == 'www.cnn.com'){
+if (host == 'www.cnn.com'){
   var cnn = setInterval(function(){
     if ( $('.js-gigya-sharebar').length){
       $('.js-gigya-sharebar').hide();
@@ -18,7 +20,7 @@ if (document.location.hostname == 'www.cnn.com'){
 }
 
 // Huffington Post
-if (document.location.hostname == 'www.huffingtonpost.com'){
+if (host == 'www.huffingtonpost.com'){
   var huffington = setInterval(function(){
     if ( $('.share-bar').length){
       $('.share-bar').hide();
@@ -27,7 +29,7 @@ if (document.location.hostname == 'www.huffingtonpost.com'){
 }
 
 // Lifehacker
-if (document.location.hostname == 'lifehacker.com'){
+if (host == 'lifehacker.com'){
   var lifehacker = setInterval(function(){
     if ( $('.js_sharingfooter').length){
       $('.js_sharingfooter').hide();
@@ -36,7 +38,7 @@ if (document.location.hostname == 'lifehacker.com'){
 }
 
 // Mashable
-if (document.location.hostname == 'mashable.com'){
+if (host == 'mashable.com'){
   var mashable = setInterval(function(){
     if ( $('.share-buttons').length){
       $('.share-buttons').hide();
@@ -48,7 +50,7 @@ if (document.location.hostname == 'mashable.com'){
 //Medium
 
 // Share bar
-if (document.location.hostname == 'medium.com' || document.location.hostname == 'blog.medium.com'){
+if (host.includes('medium.') || host.includes('medium.com') || host.includes('blog.medium.com')){
   var share = setInterval(function(){
     if ( $('.js-postShareWidget').length){
       $('.js-postShareWidget').hide();
@@ -60,11 +62,16 @@ if (document.location.hostname == 'medium.com' || document.location.hostname == 
       $('.postActions').hide();
     }
   }, 1000);
-
+  //Follow Author card
+  var promoCardWrapper = setInterval(function(){
+    if ( $('.promoCardWrapper').length){
+      $('.promoCardWrapper').hide();
+    }
+  }, 1000);
 }
 
 //The Washington Post
-if (document.location.hostname == 'www.washingtonpost.com'){
+if (host == 'www.washingtonpost.com'){
   var share = setInterval(function(){
     if ( $('.social-tools-wrapper').length){
       $('.social-tools-wrapper').hide();
@@ -73,7 +80,7 @@ if (document.location.hostname == 'www.washingtonpost.com'){
 }
 
 //WSJ
-if (document.location.hostname == 'www.wsj.com'){
+if (host == 'www.wsj.com'){
   var share = setInterval(function(){
     if ( $('#article_tools').length){
       $('#article_tools').hide();
@@ -82,7 +89,7 @@ if (document.location.hostname == 'www.wsj.com'){
 }
 
 // Verge
-if (document.location.hostname == 'www.theverge.com'){
+if (host == 'www.theverge.com'){
   var vergeVox = setInterval(function(){
     if ( $('.c-social-buttons').length){
       $('.c-social-buttons').hide();
@@ -91,7 +98,7 @@ if (document.location.hostname == 'www.theverge.com'){
 }
 
 // VOX
-if (document.location.hostname == 'www.vox.com'){
+if (host == 'www.vox.com'){
   var vergeVox = setInterval(function(){
     if ( $('.c-social-buttons').length){
       $('.c-social-buttons').hide();
