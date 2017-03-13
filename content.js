@@ -61,22 +61,26 @@ if (host == 'mashable.com'){
 const medPostShareWidget = select('.js-postShareWidget');
 const medRecBar = select('.postActionsBar');
 const medAuthorCard = select('.promoCardWrapper');
-if (host.includes('medium.') || host.includes('medium.com') || host.includes('blog.medium.com')){
-  const medShare = setInterval(() => {
+const medUpdateBar = select('.js-stickyFooter');
+if (host.includes('medium.')
+    || host.includes('blog.medium.com')
+    || document.referrer.includes('medium.')
+  ){
+  setInterval(() => {
     if (medPostShareWidget){
       hide(medPostShareWidget);
     }
-  }, 1000);
   // Recommend/Comment bar
-  const postact = setInterval(() => {
     if(medRecBar){
       hide(medRecBar);
     }
-  }, 1000);
-  //Follow Author card
-  const promoCardWrapper = setInterval(() => {
+  // Follow Author card
     if(medAuthorCard){
       hide(medAuthorCard);
+    }
+  // Never miss a story bar
+    if(medUpdateBar){
+      hide(medUpdateBar);
     }
   }, 1000);
 }
