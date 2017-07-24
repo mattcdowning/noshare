@@ -1,15 +1,17 @@
 {
   "manifest_version": 2,
-  "name": "NoShare",
-  "version": "0.0.7",
+  "name": "Refined Medium",
+  "version": "0.0.1",
+  "permissions": ["activeTab"],
   "browser_action": {
-  "default_icon": "icon128.png"
+    "default_icon": "icon128.png"
+  },
+  "background": {
+    "scripts": ["background.js"]
   },
   "content_scripts": [
     {
-      "matches": [
-        "<all_urls>"
-      ],
+      "matches": ["<all_urls>"],
       "run_at": "document_end",
       "js": ["content.js"]
     }
