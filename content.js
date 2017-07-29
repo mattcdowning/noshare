@@ -8,9 +8,8 @@ function hide(el) {
 }
 
 var currentState = localStorage.currentState
-// // set localstorage
+// set localstorage
 
-// localStorage.currentState = 'start'
 if (currentState == undefined || currentState == 'start') {
   localStorage.currentState = 'start'
   toggleRefinement()
