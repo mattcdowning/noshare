@@ -1,0 +1,3 @@
+localStorage.currentState = 'start'
+
+toggleRefinement()

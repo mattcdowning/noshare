@@ -1,4 +1,4 @@
-//select element via class
+// select element via class
 function select(selector) {
   return document.querySelector(selector)
 }
@@ -8,23 +8,20 @@ function hide(el) {
 }
 
 var currentState = localStorage.currentState
-// set localstorage
+// // set localstorage
 
+// localStorage.currentState = 'start'
 if (currentState == undefined || currentState == 'start') {
   localStorage.currentState = 'start'
   toggleRefinement()
-} else {
-  localStorage.currentState = 'stop'
-  toggleRefinement()
-  clearTimeout(refineMedium)
 }
 
-//Medium
-// Share bar
+var refineMedium
+
 function toggleRefinement() {
-  var refineMedium
   if (
-    document.location.hostname.includes('medium.') ||
+    (currentState == 'start' &&
+      document.location.hostname.includes('medium.')) ||
     document.location.hostname.includes('blog.medium.com') ||
     document.referrer.includes('medium.')
   ) {
