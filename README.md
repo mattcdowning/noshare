@@ -1,10 +1,6 @@
-# NoShare
+# Refined Medium 
 
-Chrome extension that hides sharing widgets on: Bloomberg, CNN, The Huffington Post, Lifehacker, Mashable, Medium, The Verge, Vox, The Wall Street Journal, and The Washington Post! Want to block annoying sharing widgets on another site?! Open an issue and we'll do our best to accommodate :)
-
-## Contributing
-
-All contributions welcome!
+🤖 Chrome extension that removes the pestering share widget and signup bars on Medium.com so you can focus on the article. Reader View in Safari is a wonderful alternative to this extension, but then you have to use Safari...So until Chrome implements similar functionality, Refined Medium is here to help 😗
 
 ## License
 
