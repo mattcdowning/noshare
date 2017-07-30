@@ -7,44 +7,45 @@ function hide(el) {
   el.style.visibility = 'hidden'
 }
 
-var currentState = localStorage.currentState
-// set localstorage
+window.onload = function() {
+  var currentState = localStorage.currentState
+  // set localstorage
 
-if (currentState == undefined || currentState == 'start') {
-  localStorage.currentState = 'start'
-  toggleRefinement()
-}
+  var refineMedium
 
-var refineMedium
+  function toggleRefinement() {
+    if (
+      document.location.hostname.includes('medium.') ||
+      document.location.hostname.includes('blog.medium.com') ||
+      document.referrer.includes('medium.')
+    ) {
+      refineMedium = setInterval(() => {
+        const medPostShareWidget = select('.js-postShareWidget')
+        const medRecBar = select('.postActionsBar')
+        const medAuthorCard = select('.promoCardWrapper')
+        const medUpdateBar = select('.js-stickyFooter')
 
-function toggleRefinement() {
-  if (
-    (currentState == 'start' &&
-      document.location.hostname.includes('medium.')) ||
-    document.location.hostname.includes('blog.medium.com') ||
-    document.referrer.includes('medium.')
-  ) {
-    refineMedium = setInterval(() => {
-      const medPostShareWidget = select('.js-postShareWidget')
-      const medRecBar = select('.postActionsBar')
-      const medAuthorCard = select('.promoCardWrapper')
-      const medUpdateBar = select('.js-stickyFooter')
+        if (medPostShareWidget) {
+          hide(medPostShareWidget)
+        }
+        // Recommend/Comment bar
+        if (medRecBar) {
+          hide(medRecBar)
+        }
+        // Follow Author card
+        if (medAuthorCard) {
+          hide(medAuthorCard)
+        }
+        // Never miss a story bar
+        if (medUpdateBar) {
+          hide(medUpdateBar)
+        }
+      }, 1000)
+    }
+  }
 
-      if (medPostShareWidget) {
-        hide(medPostShareWidget)
-      }
-      // Recommend/Comment bar
-      if (medRecBar) {
-        hide(medRecBar)
-      }
-      // Follow Author card
-      if (medAuthorCard) {
-        hide(medAuthorCard)
-      }
-      // Never miss a story bar
-      if (medUpdateBar) {
-        hide(medUpdateBar)
-      }
-    }, 1000)
+  if (currentState == undefined || currentState == 'start') {
+    localStorage.currentState = 'start'
+    toggleRefinement()
   }
 }
