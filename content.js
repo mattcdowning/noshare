@@ -34,6 +34,7 @@ window.onload = function() {
           '.js-upgradeMembershipAction',
           '.meterThumbnail',
           '.postMeterBar',
+          '.butterBar',
         ]
         const grab = shit.map(x => select(x))
         const destroy = grab.map(x => hide(x))
