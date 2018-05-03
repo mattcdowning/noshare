@@ -1,18 +1,22 @@
 // select element via class
-function select(selector) {
-  return document.querySelector(selector)
+const select = function(selector) {
+  if (selector !== null) {
+    return document.querySelector(selector)
+  }
 }
 //hide element
-function hide(el) {
-  el.style.visibility = 'hidden'
+const hide = function(el) {
+  if (el !== null) {
+    el.style.visibility = 'hidden'
+  }
 }
 
 window.onload = function() {
-  var currentState = localStorage.currentState
+  let currentState = localStorage.currentState
   // set localstorage
 
-  var refineMedium
-
+  let refineMedium
+  let time
   function toggleRefinement() {
     if (
       document.location.hostname.includes('medium.') ||
@@ -20,25 +24,21 @@ window.onload = function() {
       document.referrer.includes('medium.')
     ) {
       refineMedium = setInterval(() => {
-        const medPostShareWidget = select('.js-postShareWidget')
-        const medRecBar = select('.postActionsBar')
-        const medAuthorCard = select('.promoCardWrapper')
-        const medUpdateBar = select('.js-stickyFooter')
-
-        if (medPostShareWidget) {
-          hide(medPostShareWidget)
-        }
-        // Recommend/Comment bar
-        if (medRecBar) {
-          hide(medRecBar)
-        }
-        // Follow Author card
-        if (medAuthorCard) {
-          hide(medAuthorCard)
-        }
-        // Never miss a story bar
-        if (medUpdateBar) {
-          hide(medUpdateBar)
+        time++
+        const shit = [
+          '.js-postShareWidget',
+          '.js-elevatePostActions',
+          '.postActionsBar',
+          '.promoCardWrapper',
+          '.js-stickyFooter',
+          '.js-upgradeMembershipAction',
+          '.meterThumbnail',
+          '.postMeterBar',
+        ]
+        const grab = shit.map(x => select(x))
+        const destroy = grab.map(x => hide(x))
+        if (time > 15) {
+          clearInterval(refineMedium)
         }
       }, 1000)
     }
