@@ -11,36 +11,44 @@ const hide = function(el) {
   }
 }
 
+const destroy = arr => arr.map(x => select(x)).map(x => hide(x))
+
 window.onload = function() {
   let currentState = localStorage.currentState
-  // set localstorage
 
-  let refineMedium
-  let time
-  function toggleRefinement() {
-    if (
-      document.location.hostname.includes('medium.') ||
-      document.location.hostname.includes('blog.medium.com') ||
-      document.referrer.includes('medium.')
-    ) {
-      refineMedium = setInterval(() => {
+  const pardon = select('.overlay-content')
+  const isPardon = pardon.querySelector('h1').textContent.includes('Pardon')
+
+  if (isPardon) {
+    hide(pardon)
+  }
+
+  const isMedium =
+    document.location.hostname.includes('medium.') ||
+    document.location.hostname.includes('blog.medium.com') ||
+    document.referrer.includes('medium.')
+
+  const shit = [
+    '.js-postShareWidget',
+    '.js-elevatePostActions',
+    '.postActionsBar',
+    '.promoCardWrapper',
+    '.js-stickyFooter',
+    '.js-upgradeMembershipAction',
+    '.meterThumbnail',
+    '.postMeterBar',
+    '.butterBar',
+  ]
+
+  const toggleRefinement = () => {
+    if (isMedium) {
+      let time = 0
+      const refineMedium = setInterval(() => {
         time++
-        const shit = [
-          '.js-postShareWidget',
-          '.js-elevatePostActions',
-          '.postActionsBar',
-          '.promoCardWrapper',
-          '.js-stickyFooter',
-          '.js-upgradeMembershipAction',
-          '.meterThumbnail',
-          '.postMeterBar',
-          '.butterBar',
-        ]
-        const grab = shit.map(x => select(x))
-        const destroy = grab.map(x => hide(x))
         if (time > 15) {
           clearInterval(refineMedium)
         }
+        destroy(shit)
       }, 1000)
     }
   }
