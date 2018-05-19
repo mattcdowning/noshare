@@ -30,14 +30,6 @@ window.onload = function() {
     '.postMeterBar',
     '.butterBar',
   ]
-  const pardon = select('.overlay-content')
-
-  if (pardon && isMedium) {
-    const isPardon = pardon.querySelector('h1').textContent.includes('Pardon')
-    if (isPardon !== null) {
-      hide(pardon)
-    }
-  }
 
   const toggleRefinement = () => {
     if (isMedium) {
