@@ -15,19 +15,10 @@ const destroy = arr => arr.map(x => select(x)).map(x => hide(x))
 
 window.onload = function() {
   let currentState = localStorage.currentState
-
-  const pardon = select('.overlay-content')
-  const isPardon = pardon.querySelector('h1').textContent.includes('Pardon')
-
-  if (isPardon) {
-    hide(pardon)
-  }
-
   const isMedium =
     document.location.hostname.includes('medium.') ||
     document.location.hostname.includes('blog.medium.com') ||
     document.referrer.includes('medium.')
-
   const shit = [
     '.js-postShareWidget',
     '.js-elevatePostActions',
@@ -39,6 +30,14 @@ window.onload = function() {
     '.postMeterBar',
     '.butterBar',
   ]
+  const pardon = select('.overlay-content')
+
+  if (pardon && isMedium) {
+    const isPardon = pardon.querySelector('h1').textContent.includes('Pardon')
+    if (isPardon !== null) {
+      hide(pardon)
+    }
+  }
 
   const toggleRefinement = () => {
     if (isMedium) {
