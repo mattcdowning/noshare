@@ -1,8 +1,7 @@
 localStorage.currentState = 'start'
 function toggleRefinement() {
   if (
-    (
-      document.location.hostname.includes('medium.')) ||
+    document.location.hostname.includes('medium.') ||
     document.location.hostname.includes('blog.medium.com') ||
     document.referrer.includes('medium.')
   ) {
@@ -11,7 +10,10 @@ function toggleRefinement() {
       const medRecBar = select('.postActionsBar')
       const medAuthorCard = select('.promoCardWrapper')
       const medUpdateBar = select('.js-stickyFooter')
-
+      const showResponses = select('.responsesStream-showOtherResponses')
+      if (showResponses) {
+        showResponses.click()
+      }
       if (medPostShareWidget) {
         hide(medPostShareWidget)
       }

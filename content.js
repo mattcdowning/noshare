@@ -36,10 +36,18 @@ window.onload = function() {
       let time = 0
       const refineMedium = setInterval(() => {
         time++
-        if (time > 15) {
+        if (time > 9) {
           clearInterval(refineMedium)
         }
         destroy(shit)
+        const overlay = select('.overlay')
+        if (overlay) {
+          overlay.style.display = 'none'
+        }
+        const showResponses = select('.responsesStream-showOtherResponses')
+        if (showResponses) {
+          showResponses.click()
+        }
       }, 1000)
     }
   }
