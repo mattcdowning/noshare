@@ -1,6 +1,6 @@
 # Refined Medium
 
-🤖 Chrome extension that removes the pestering share widget, signup bars, and other cruft on Medium.com so you can focus on the article. Reader View in Safari is a wonderful alternative to this extension, but then you have to use Safari...So until Chrome implements similar functionality, Refined Medium is here to help 😗
+Chrome extension that removes the pestering "Pardon the Interruption" popup, social share widget, signup bars, and other cruft on Medium.com so you can focus on the article. ✨ And now it will open Responses automatically so you don't have to 😗
 
 ### Share widget:
 
